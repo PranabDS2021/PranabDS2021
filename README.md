@@ -47,6 +47,40 @@
 
 ## 🚀 Currently
 - Building channel partnerships and automating boring stuff with Python.
+
+  # My Ultimate Dockerfile
+FROM python:3.11-slim
+
+WORKDIR /app
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+CMD ["python", "app.py"]
+
+# Simple Kubernetes Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pranab-awesome-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: awesome-app
+  template:
+    metadata:
+      labels:
+        app: awesome-app
+    spec:
+      containers:
+      - name: awesome-app-container
+        image: pranabds2021/awesome-app:latest
+        ports:
+        - containerPort: 8080
+
 - Deploying Kubernetes clusters without (too many) emotional breakdowns.
 - Packing apps into tiny shipping containers called Docker images (yes, I love Tetris too).
 
@@ -58,3 +92,19 @@
 ---
 
 > “They say ‘move fast and break things’... I prefer ‘move fast, automate things, then break the automation just for fun.’”
+>
+> # Life-Changing Automation Script
+import os
+import time
+
+def automate_chaos():
+    print("Initiating chaos automation sequence...")
+    time.sleep(1)
+    for i in range(5):
+        print(f"Step {i+1}: Automating boring tasks...")
+        time.sleep(0.5)
+    print("✅ Automation Complete. Enjoy your free time!")
+
+if __name__ == "__main__":
+    automate_chaos()
+
